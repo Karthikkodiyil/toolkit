@@ -35,6 +35,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  build_runner: ^2.4.13
+  provider: ^6.1.2
+  hive_flutter: ^1.1.0
+  firebase_core: ^3.10.0
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -46,10 +51,16 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
+  flutter_gen_runner: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+flutter_gen:
+  output: lib\utils\assets
+  line_length: 80
+
+  
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -59,8 +70,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - asset/image/
+    - asset/icon/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -74,13 +86,14 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
+  fonts:
+     - family: poppins
+       fonts:
+         - asset: asset\font\Poppins-Bold.ttf
+         - asset: asset\font\Poppins-Light.ttf
+         - asset: asset\font\Poppins-Medium.ttf
+         - asset: asset\font\Poppins-Regular.ttf
+         - asset: asset\font\Poppins-SemiBold.ttf
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
