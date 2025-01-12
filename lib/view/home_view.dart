@@ -76,7 +76,7 @@ class HomeView extends StatelessWidget {
                 ],
                 options: CarouselOptions(
                   height: SizeConfig.screenWidth * 0.2,
-                  aspectRatio: 20 / 12,
+                  //   aspectRatio: 20 / 18,
                   viewportFraction: 0.9,
                   initialPage: 0,
                   enableInfiniteScroll: false,

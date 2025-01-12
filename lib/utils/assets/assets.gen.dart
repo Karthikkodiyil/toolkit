@@ -60,6 +60,54 @@ class $AssetImageGen {
   AssetGenImage get toolkitCarousel9 =>
       const AssetGenImage('asset/image/toolkit_carousel_9.jpg');
 
+  /// File path: asset/image/toolkit_tools.jpg
+  AssetGenImage get toolkitTools =>
+      const AssetGenImage('asset/image/toolkit_tools.jpg');
+
+  /// File path: asset/image/toolkit_tools_1.jpg
+  AssetGenImage get toolkitTools1 =>
+      const AssetGenImage('asset/image/toolkit_tools_1.jpg');
+
+  /// File path: asset/image/toolkit_tools_10.jpg
+  AssetGenImage get toolkitTools10 =>
+      const AssetGenImage('asset/image/toolkit_tools_10.jpg');
+
+  /// File path: asset/image/toolkit_tools_11.jpg
+  AssetGenImage get toolkitTools11 =>
+      const AssetGenImage('asset/image/toolkit_tools_11.jpg');
+
+  /// File path: asset/image/toolkit_tools_2.jpg
+  AssetGenImage get toolkitTools2 =>
+      const AssetGenImage('asset/image/toolkit_tools_2.jpg');
+
+  /// File path: asset/image/toolkit_tools_3.jpg
+  AssetGenImage get toolkitTools3 =>
+      const AssetGenImage('asset/image/toolkit_tools_3.jpg');
+
+  /// File path: asset/image/toolkit_tools_4.jpg
+  AssetGenImage get toolkitTools4 =>
+      const AssetGenImage('asset/image/toolkit_tools_4.jpg');
+
+  /// File path: asset/image/toolkit_tools_5.jpg
+  AssetGenImage get toolkitTools5 =>
+      const AssetGenImage('asset/image/toolkit_tools_5.jpg');
+
+  /// File path: asset/image/toolkit_tools_6.jpg
+  AssetGenImage get toolkitTools6 =>
+      const AssetGenImage('asset/image/toolkit_tools_6.jpg');
+
+  /// File path: asset/image/toolkit_tools_7.jpg
+  AssetGenImage get toolkitTools7 =>
+      const AssetGenImage('asset/image/toolkit_tools_7.jpg');
+
+  /// File path: asset/image/toolkit_tools_8.jpg
+  AssetGenImage get toolkitTools8 =>
+      const AssetGenImage('asset/image/toolkit_tools_8.jpg');
+
+  /// File path: asset/image/toolkit_tools_9.jpg
+  AssetGenImage get toolkitTools9 =>
+      const AssetGenImage('asset/image/toolkit_tools_9.jpg');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         manProfile,
@@ -73,7 +121,19 @@ class $AssetImageGen {
         toolkitCarousel6,
         toolkitCarousel7,
         toolkitCarousel8,
-        toolkitCarousel9
+        toolkitCarousel9,
+        toolkitTools,
+        toolkitTools1,
+        toolkitTools10,
+        toolkitTools11,
+        toolkitTools2,
+        toolkitTools3,
+        toolkitTools4,
+        toolkitTools5,
+        toolkitTools6,
+        toolkitTools7,
+        toolkitTools8,
+        toolkitTools9
       ];
 }
 
