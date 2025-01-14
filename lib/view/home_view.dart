@@ -104,9 +104,9 @@ class HomeView extends StatelessWidget {
               ),
               GridView.builder(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: toolList.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2),
                   itemBuilder: (context, index) {
                     return Container(
@@ -114,7 +114,26 @@ class HomeView extends StatelessWidget {
                       width: 50,
                       decoration:
                           BoxDecoration(border: Border.all(color: kBlack)),
-                      // child: Column(),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(toolList[index].img!),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
+                          Text(toolList[index].name ?? ""),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text("₹${toolList[index].prize ?? "00"}"),
+                              Text("₹${toolList[index].oldPrize ?? "00"}"),
+                            ],
+                          )
+                        ],
+                      ),
                     );
                   })
             ],
