@@ -31,9 +31,14 @@ class HomePageViewmodel extends ChangeNotifier {
 
   double setSearchListHeight() {
     if (_searchToolList.length > 5) {
-      return 100;
-    } else {
       return 250;
+    } else {
+      if (_searchToolList.isEmpty || _searchToolList == []) {
+        return 25;
+      } else {
+        double value = _searchToolList.length * 25;
+        return value;
+      }
     }
   }
 }
