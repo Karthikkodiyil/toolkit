@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:toolkit/utils/app_colors.dart';
 import 'package:toolkit/utils/app_styles.dart';
 import 'package:toolkit/utils/assets/assets.gen.dart';
@@ -6,7 +7,9 @@ import 'package:toolkit/utils/components/responsive_widget.dart';
 import 'package:toolkit/utils/components/size_config.dart';
 import 'package:toolkit/view/home/widgets/home_carousel_widget.dart';
 import 'package:toolkit/view/home/widgets/home_search_widget.dart';
+import 'package:toolkit/view/home/widgets/home_side_bar.dart';
 import 'package:toolkit/view/home/widgets/tool_box_widget.dart';
+import 'package:toolkit/view_model/home_page_viewmodel.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -17,12 +20,21 @@ class HomeView extends StatelessWidget {
     SizeConfig().init(context);
     return Stack(children: [
       Scaffold(
+        backgroundColor: kWhite,
         appBar: AppBar(
-          leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+          leading: Consumer<HomePageViewmodel>(
+              builder: (context, homepageViewModel, child) => IconButton(
+                  onPressed: () {
+                    homepageViewModel.toggleSideBar();
+                  },
+                  icon: const Icon(Icons.menu))),
           backgroundColor: kWhite,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              SizedBox(
+                  height: 35,
+                  child: Image.asset(Assets.image.toolkitLogo.path)),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -75,11 +87,12 @@ class HomeView extends StatelessWidget {
           ),
         )),
       ),
-      Container(
-        height: SizeConfig.screenHeight,
-        width: 250,
-        color: kRed,
-      )
+      Consumer<HomePageViewmodel>(
+          builder: (context, homepageViewModel, child) =>
+              const AnimatedPositioned(
+                  duration: Duration(seconds: 1),
+                  left: 0,
+                  child: HomeSideBar()))
     ]);
   }
 }

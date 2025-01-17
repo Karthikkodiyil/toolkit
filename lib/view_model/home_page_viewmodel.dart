@@ -10,6 +10,9 @@ class HomePageViewmodel extends ChangeNotifier {
   List<ToolsModel> _searchToolList = [];
   List<ToolsModel> get searchToolList => _searchToolList;
 
+  bool _isSideBar = false;
+  bool get isSideBar => _isSideBar;
+
   void toggleMoreText(int index) {
     // _isMoreText.fillRange(0, toolList.length - 1,false);
     _isMoreText[index] = !_isMoreText[index];
@@ -40,5 +43,10 @@ class HomePageViewmodel extends ChangeNotifier {
         return value;
       }
     }
+  }
+
+  void toggleSideBar() {
+    _isSideBar = !_isSideBar;
+    notifyListeners();
   }
 }

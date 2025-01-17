@@ -60,6 +60,10 @@ class $AssetImageGen {
   AssetGenImage get toolkitCarousel9 =>
       const AssetGenImage('asset/image/toolkit_carousel_9.jpg');
 
+  /// File path: asset/image/toolkit_logo.png
+  AssetGenImage get toolkitLogo =>
+      const AssetGenImage('asset/image/toolkit_logo.png');
+
   /// File path: asset/image/toolkit_tools.jpg
   AssetGenImage get toolkitTools =>
       const AssetGenImage('asset/image/toolkit_tools.jpg');
@@ -122,6 +126,7 @@ class $AssetImageGen {
         toolkitCarousel7,
         toolkitCarousel8,
         toolkitCarousel9,
+        toolkitLogo,
         toolkitTools,
         toolkitTools1,
         toolkitTools10,
