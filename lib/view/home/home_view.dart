@@ -21,70 +21,127 @@ class HomeView extends StatelessWidget {
     return Stack(children: [
       Scaffold(
         backgroundColor: kWhite,
-        appBar: AppBar(
-          leading: Consumer<HomePageViewmodel>(
-              builder: (context, homepageViewModel, child) => IconButton(
-                  onPressed: () {
-                    homepageViewModel.toggleSideBar();
-                  },
-                  icon: const Icon(Icons.menu))),
-          backgroundColor: kWhite,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                  height: 35,
-                  child: Image.asset(Assets.image.toolkitLogo.path)),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Toolkit",
-                    style: styles.primBold20,
-                  ),
-                  Text(
-                    " Go to greeen",
-                    style: styles.blackRegular11,
-                  ),
-                ],
-              ),
-              const Expanded(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 15, right: 15),
-                  child: SizedBox(
-                    height: 40,
-                    child: HomeSearchWidget(),
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                backgroundImage: AssetImage(Assets.image.manProfile.path),
-              )
-            ],
-          ),
-        ),
+        // appBar: AppBar(
+        //   //centerTitle: true,
+        //   leading: Consumer<HomePageViewmodel>(
+        //       builder: (context, homepageViewModel, child) => IconButton(
+        //           onPressed: () {
+        //             homepageViewModel.toggleSideBar();
+        //           },
+        //           icon: const Icon(Icons.menu))),
+        //   backgroundColor: kWhite,
+        //   title: Row(
+        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //     children: [
+        //       SizedBox(
+        //           height: 35,
+        //           child: Image.asset(Assets.image.toolkitLogo.path)),
+        //       Column(
+        //         crossAxisAlignment: CrossAxisAlignment.start,
+        //         children: [
+        //           Text(
+        //             "Toolkit",
+        //             style: styles.primBold20,
+        //           ),
+        //           Text(
+        //             " Go to greeen",
+        //             style: styles.blackRegular11,
+        //           ),
+        //         ],
+        //       ),
+        //       const Expanded(
+        //         child: Padding(
+        //           padding: EdgeInsets.only(left: 15, right: 15),
+        //           child: SizedBox(
+        //             height: 40,
+        //             child: HomeSearchWidget(),
+        //           ),
+        //         ),
+        //       ),
+        //       CircleAvatar(
+        //         radius: 20,
+        //         backgroundImage: AssetImage(Assets.image.manProfile.path),
+        //       )
+        //     ],
+        //   ),
+        // ),
         body: SafeArea(
-            child: Padding(
-          padding: const EdgeInsets.only(left: 25, right: 25),
-          child: SingleChildScrollView(
             child: Column(
-              children: [
-                15.kH,
-                Container(
-                  decoration: const BoxDecoration(),
-                  child: const HomeCarouselWidget(),
-                ),
-                15.kH,
-                const ResponsiveWidget(
-                    mobile: ToolBoxWidget(
-                      crossAxisCount: 2,
+          children: [
+            Container(
+              color: kPrimary,
+              height: 110,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      //    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Consumer<HomePageViewmodel>(
+                            builder: (context, homepageViewModel, child) =>
+                                IconButton(
+                                    onPressed: () {
+                                      homepageViewModel.toggleSideBar();
+                                    },
+                                    icon: const Icon(Icons.menu))),
+                        SizedBox(
+                            height: 35,
+                            child: Image.asset(Assets.image.toolkitLogo.path)),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Toolkit",
+                              style: styles.whiteRegular18,
+                            ),
+                            Text(
+                              " Go to greeen",
+                              style: styles.blackRegular11,
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        CircleAvatar(
+                          radius: 18,
+                          backgroundImage:
+                              AssetImage(Assets.image.manProfile.path),
+                        )
+                      ],
                     ),
-                    web: ToolBoxWidget(
-                      crossAxisCount: 4,
-                    ))
-              ],
+                    HomeSearchWidget(),
+                  ],
+                ),
+              ),
             ),
-          ),
+            SizedBox(
+              height: SizeConfig.screenHeight - 110,
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 15.0, right: 15),
+                  child: Column(
+                    children: [
+                      15.kH,
+                      Container(
+                        decoration: const BoxDecoration(),
+                        child: const HomeCarouselWidget(),
+                      ),
+                      15.kH,
+                      const ResponsiveWidget(
+                          mobile: ToolBoxWidget(
+                            crossAxisCount: 2,
+                          ),
+                          web: ToolBoxWidget(
+                            crossAxisCount: 4,
+                          ))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
         )),
       ),
       Consumer<HomePageViewmodel>(
