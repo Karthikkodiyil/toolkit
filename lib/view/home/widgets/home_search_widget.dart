@@ -19,7 +19,7 @@ class HomeSearchWidget extends StatelessWidget {
               decoration: BoxDecoration(
                   color: kWhite, borderRadius: BorderRadius.circular(5)),
               child: TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: InputBorder.none,
                     prefixIcon: Icon(Icons.search),
                     hintText: "Search ..."),

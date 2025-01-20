@@ -70,7 +70,7 @@ class HomeView extends StatelessWidget {
           children: [
             Container(
               color: kPrimary,
-              height: 110,
+              height: 120,
               child: Padding(
                 padding: const EdgeInsets.only(right: 10.0),
                 child: Column(
@@ -112,12 +112,41 @@ class HomeView extends StatelessWidget {
                       ],
                     ),
                     HomeSearchWidget(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          "Category",
+                          style: styles.whiteBold14,
+                        ),
+                        10.kW,
+                        Text(
+                          "Account",
+                          style: styles.whiteBold14,
+                        ),
+                        10.kW,
+                        Text(
+                          "Privacy policy",
+                          style: styles.whiteBold14,
+                        ),
+                        10.kW,
+                        Text(
+                          "Contact",
+                          style: styles.whiteBold14,
+                        ),
+                        10.kW,
+                        Text(
+                          "About us",
+                          style: styles.whiteBold14,
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
             ),
             SizedBox(
-              height: SizeConfig.screenHeight - 110,
+              height: SizeConfig.screenHeight - 120,
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15.0, right: 15),

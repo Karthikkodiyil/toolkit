@@ -85,7 +85,7 @@ class HomeSideBar extends StatelessWidget {
 class _ItemWidget extends StatelessWidget {
   final String itemName;
   final IconData icon;
-  const _ItemWidget({super.key, required this.itemName, required this.icon});
+  const _ItemWidget({required this.itemName, required this.icon});
 
   @override
   Widget build(BuildContext context) {

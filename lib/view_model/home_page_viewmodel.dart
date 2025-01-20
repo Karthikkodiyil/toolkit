@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:toolkit/model/tools_model.dart';
 
 class HomePageViewmodel extends ChangeNotifier {
-  List<bool> _isMoreText = List.generate(toolList.length, (int index) => false);
+  final List<bool> _isMoreText = List.generate(toolList.length, (int index) => false);
   List<bool> get isMoreText => _isMoreText;
 
   List<ToolsModel> _searchToolList = [];
