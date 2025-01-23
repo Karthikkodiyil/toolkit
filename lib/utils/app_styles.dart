@@ -34,6 +34,8 @@ class AppStyles {
   TextStyle get blackBold16 => _baseTextStyle(kBlack, 16.0, FontWeight.bold);
   TextStyle get whiteBold16 => _baseTextStyle(kWhite, 18.0, FontWeight.w500);
   TextStyle get blackRegular11 => _baseTextStyle(kBlack, 11.0, FontWeight.w500);
+  TextStyle get whiteRegular11 => _baseTextStyle(kWhite, 11.0, FontWeight.w500);
+
   TextStyle get primBold20 => _baseTextStyle(kPrimary, 20.0, FontWeight.bold);
   TextStyle get blackBold14 => _baseTextStyle(kBlack, 14.0, FontWeight.w500);
   TextStyle get blackRegular10 => _baseTextStyle(kBlack, 10.0, FontWeight.w500);
@@ -48,4 +50,7 @@ class AppStyles {
 
   TextStyle get whiteRegular18 =>
       _strikeTextStyle(kWhite, 18.0, FontWeight.w500, TextDecoration.none);
+
+  TextStyle get blackRegular12 =>
+      _strikeTextStyle(kBlack, 12.0, FontWeight.w500, TextDecoration.none);
 }

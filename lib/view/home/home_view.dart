@@ -70,7 +70,7 @@ class HomeView extends StatelessWidget {
           children: [
             Container(
               color: kPrimary,
-              height: 120,
+              height: 50,
               child: Padding(
                 padding: const EdgeInsets.only(right: 10.0),
                 child: Column(
@@ -86,7 +86,10 @@ class HomeView extends StatelessWidget {
                                     onPressed: () {
                                       homepageViewModel.toggleSideBar();
                                     },
-                                    icon: const Icon(Icons.menu))),
+                                    icon: const Icon(
+                                      Icons.menu,
+                                      color: kWhite,
+                                    ))),
                         SizedBox(
                             height: 35,
                             child: Image.asset(Assets.image.toolkitLogo.path)),
@@ -98,8 +101,8 @@ class HomeView extends StatelessWidget {
                               style: styles.whiteRegular18,
                             ),
                             Text(
-                              " Go to greeen",
-                              style: styles.blackRegular11,
+                              "Go to greeen",
+                              style: styles.whiteRegular11,
                             ),
                           ],
                         ),
@@ -111,36 +114,36 @@ class HomeView extends StatelessWidget {
                         )
                       ],
                     ),
-                    HomeSearchWidget(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          "Category",
-                          style: styles.whiteBold14,
-                        ),
-                        10.kW,
-                        Text(
-                          "Account",
-                          style: styles.whiteBold14,
-                        ),
-                        10.kW,
-                        Text(
-                          "Privacy policy",
-                          style: styles.whiteBold14,
-                        ),
-                        10.kW,
-                        Text(
-                          "Contact",
-                          style: styles.whiteBold14,
-                        ),
-                        10.kW,
-                        Text(
-                          "About us",
-                          style: styles.whiteBold14,
-                        ),
-                      ],
-                    )
+                    //    const HomeSearchWidget(),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.end,
+                    //   children: [
+                    //     Text(
+                    //       "Category",
+                    //       style: styles.whiteBold14,
+                    //     ),
+                    //     10.kW,
+                    //     Text(
+                    //       "Account",
+                    //       style: styles.whiteBold14,
+                    //     ),
+                    //     10.kW,
+                    //     Text(
+                    //       "Privacy policy",
+                    //       style: styles.whiteBold14,
+                    //     ),
+                    //     10.kW,
+                    //     Text(
+                    //       "Contact",
+                    //       style: styles.whiteBold14,
+                    //     ),
+                    //     10.kW,
+                    //     Text(
+                    //       "About us",
+                    //       style: styles.whiteBold14,
+                    //     ),
+                    //   ],
+                    // )
                   ],
                 ),
               ),
