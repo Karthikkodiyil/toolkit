@@ -157,16 +157,30 @@ class HomeView extends StatelessWidget {
                     children: [
                       15.kH,
                       Container(
-                        decoration: const BoxDecoration(),
-                        child: const HomeCarouselWidget(),
-                      ),
+                          decoration: const BoxDecoration(),
+                          child: ResponsiveWidget(
+                              mediumDevice: HomeCarouselWidget(
+                                width: SizeConfig.screenWidth * 0.9,
+                                height: SizeConfig.screenWidth * 0.31,
+                              ),
+                              mobile: HomeCarouselWidget(
+                                width: SizeConfig.screenWidth * 0.85,
+                                height: SizeConfig.screenWidth * 0.35,
+                              ),
+                              web: HomeCarouselWidget(
+                                width: SizeConfig.screenWidth * 0.8,
+                                height: SizeConfig.screenWidth * 0.2,
+                              ))),
                       15.kH,
                       const ResponsiveWidget(
                           mobile: ToolBoxWidget(
                             crossAxisCount: 2,
                           ),
-                          web: ToolBoxWidget(
+                          mediumDevice: ToolBoxWidget(
                             crossAxisCount: 4,
+                          ),
+                          web: ToolBoxWidget(
+                            crossAxisCount: 5,
                           ))
                     ],
                   ),

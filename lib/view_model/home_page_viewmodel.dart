@@ -66,6 +66,8 @@ class HomePageViewmodel extends ChangeNotifier {
 
   void toggleSideBar() {
     _isSideBar = !_isSideBar;
+    _isCategory = false;
+    _isContact = false;
     notifyListeners();
   }
 

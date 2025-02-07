@@ -6,28 +6,65 @@ import 'package:toolkit/utils/components/size_config.dart';
 class HomeCarouselWidget extends StatelessWidget {
   const HomeCarouselWidget({
     super.key,
+    required this.height,
+    required this.width,
   });
+  final double height;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return CarouselSlider(
       items: [
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel1.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel2.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel3.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel4.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel5.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel6.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel7.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel8.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel9.path),
-        _CarouselmageWidget(img: Assets.image.toolkitCarousel10.path),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel1.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel2.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel3.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel4.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel5.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel6.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel7.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel8.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel9.path,
+          width: width,
+        ),
+        _CarouselmageWidget(
+          img: Assets.image.toolkitCarousel10.path,
+          width: width,
+        ),
       ],
       options: CarouselOptions(
-        height: SizeConfig.screenWidth * 0.2,
-        //   aspectRatio: 20 / 18,
+        height: height,
+        //    aspectRatio: 20 / 18,
         viewportFraction: 1,
         initialPage: 0,
         enableInfiniteScroll: true,
@@ -46,14 +83,16 @@ class HomeCarouselWidget extends StatelessWidget {
 
 class _CarouselmageWidget extends StatelessWidget {
   final String img;
-  const _CarouselmageWidget({required this.img});
+  final double width;
+  const _CarouselmageWidget({required this.img, required this.width});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          image: DecorationImage(image: AssetImage(img), fit: BoxFit.cover)),
+          image: DecorationImage(image: AssetImage(img), fit: BoxFit.fill)),
     );
   }
 }

@@ -131,24 +131,28 @@ class HomeSideBar extends StatelessWidget {
                         },
                       ),
                       AnimatedContainer(
-                        height: homePageViewModel.isContact ? 100 : 0,
+                        height: homePageViewModel.isContact ? 70 : 0,
                         width: double.infinity,
                         color: kWhite,
                         curve: Curves.easeIn,
                         duration: const Duration(milliseconds: 150),
                         child: homePageViewModel.isContact
                             ? Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Row(
-                                    children: [
-                                      Image.asset(Assets.icon.whatsappIcon.path)
-                                    ],
+                                  ContactWidget(
+                                    name: 'WhatsApp',
+                                    img: Assets.icon.whatsappIcon.path,
+                                    onTap: () {},
+                                    height: 25,
                                   ),
-                                  Row(
-                                    children: [
-                                      Image.asset(Assets.icon.gmailIcon.path)
-                                    ],
-                                  )
+                                  ContactWidget(
+                                    name: '  Mail',
+                                    img: Assets.icon.gmailIcon.path,
+                                    onTap: () {},
+                                    height: 20,
+                                  ),
                                 ],
                               )
                             : Container(),
@@ -157,6 +161,47 @@ class HomeSideBar extends StatelessWidget {
                     ],
                   )
                 : Container()),
+      ),
+    );
+  }
+}
+
+class ContactWidget extends StatelessWidget {
+  const ContactWidget({
+    super.key,
+    required this.name,
+    required this.img,
+    required this.onTap,
+    required this.height,
+  });
+  final String name;
+  final String img;
+  final double height;
+  final void Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    AppStyles styles = AppStyles();
+    return Material(
+      color: kWhite,
+      child: InkWell(
+        onTap: onTap,
+        child: SizedBox(
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 22.0, top: 4, right: 22, bottom: 4),
+            child: Row(
+              children: [
+                SizedBox(height: height, child: Image.asset(img)),
+                15.kW,
+                Text(
+                  name,
+                  style: styles.blackRegular12,
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -180,6 +225,7 @@ class CategoryWidget extends StatelessWidget {
         children: [
           15.kW,
           Material(
+            color: kWhite,
             child: Transform.scale(
               scale: .8,
               child: Checkbox(
