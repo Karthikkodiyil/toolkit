@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:toolkit/model/tools_model.dart';
+import 'package:toolkit/view/tools_details/tool_details_view.dart';
 
 class HomePageViewmodel extends ChangeNotifier {
   final List<bool> _isMoreText =
@@ -31,6 +32,9 @@ class HomePageViewmodel extends ChangeNotifier {
 
   bool _isContact = false;
   bool get isContact => _isContact;
+
+  ToolsModel? _selectedTool;
+  ToolsModel? get selectedTool => _selectedTool;
 
   void toggleMoreText(int index) {
     // _isMoreText.fillRange(0, toolList.length - 1,false);
@@ -109,5 +113,11 @@ class HomePageViewmodel extends ChangeNotifier {
       _isGardenTool = true;
     }
     notifyListeners();
+  }
+
+  void detailsNavigation(BuildContext context, ToolsModel value) {
+    _selectedTool = value;
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const ToolDetailsView()));
   }
 }
