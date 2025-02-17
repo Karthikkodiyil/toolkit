@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:toolkit/model/tools_model.dart';
 import 'package:toolkit/view/tools_details/tool_details_view.dart';
@@ -35,6 +36,12 @@ class HomePageViewmodel extends ChangeNotifier {
 
   ToolsModel? _selectedTool;
   ToolsModel? get selectedTool => _selectedTool;
+
+  bool isWeb(BuildContext context) {
+    bool value = false;
+    kIsWeb ? value = true : value = false;
+    return value;
+  }
 
   void toggleMoreText(int index) {
     // _isMoreText.fillRange(0, toolList.length - 1,false);

@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:toolkit/utils/components/size_config.dart';
 
 class ToolDetailCarouselWidget extends StatelessWidget {
-  const ToolDetailCarouselWidget(
-      {super.key,
-      
-      required this.images});
-  
+  const ToolDetailCarouselWidget({super.key, required this.images});
+
   final List<String> images;
 
   @override
@@ -18,11 +15,8 @@ class ToolDetailCarouselWidget extends StatelessWidget {
           images.length,
           (index) => _CarouselmageWidget(
                 img: images[index],
-             //   width: width,
               )),
       options: CarouselOptions(
-     //   height: height,
-        //    aspectRatio: 20 / 18,
         viewportFraction: 1,
         initialPage: 0,
         enableInfiniteScroll: true,
@@ -41,16 +35,17 @@ class ToolDetailCarouselWidget extends StatelessWidget {
 
 class _CarouselmageWidget extends StatelessWidget {
   final String img;
- // final double width;
-  const _CarouselmageWidget({required this.img,});
+
+  const _CarouselmageWidget({
+    required this.img,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-    //  width: width,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          image: DecorationImage(image: AssetImage(img), fit: BoxFit.fill)),
+          image: DecorationImage(image: AssetImage(img), fit: BoxFit.cover)),
     );
   }
 }
