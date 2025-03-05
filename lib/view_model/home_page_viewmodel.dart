@@ -37,11 +37,11 @@ class HomePageViewmodel extends ChangeNotifier {
   ToolsModel? _selectedTool;
   ToolsModel? get selectedTool => _selectedTool;
 
-  bool isWeb(BuildContext context) {
-    bool value = false;
-    kIsWeb ? value = true : value = false;
-    return value;
-  }
+  // bool isWeb(BuildContext context) {
+  //   bool value = false;
+  //   kIsWeb ? value = true : value = false;
+  //   return value;
+  // }
 
   void toggleMoreText(int index) {
     // _isMoreText.fillRange(0, toolList.length - 1,false);

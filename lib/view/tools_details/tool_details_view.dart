@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:toolkit/model/tools_model.dart';
 import 'package:toolkit/utils/app_colors.dart';
+import 'package:toolkit/utils/app_styles.dart';
 import 'package:toolkit/utils/assets/assets.gen.dart';
 import 'package:toolkit/utils/components/appbar_component.dart';
 import 'package:toolkit/utils/components/responsive_widget.dart';
@@ -34,27 +35,27 @@ class ToolDetailsView extends StatelessWidget {
                 child: Column(
               children: [
                 const AppBarComponent(),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(left: 15.0, right: 15, top: 15),
+                const Spacer(),
+                Center(
                   child: ResponsiveWidget(
                     mobile: DetailWidget(
                       selectedTool: selectedTool,
-                      imgWidth: SizeConfig.screenWidth * 0.85,
-                      textWidth: 400,
+                      width: SizeConfig.screenWidth * 0.95,
+                      height: SizeConfig.screenHeight * 0.95 - 50,
                     ),
                     web: DetailWidget(
                       selectedTool: selectedTool,
-                      imgWidth: SizeConfig.screenWidth * 0.4,
-                      textWidth: SizeConfig.screenWidth * 0.4,
+                      width: SizeConfig.screenWidth * 0.75,
+                      height: SizeConfig.screenHeight * 0.75,
                     ),
                     mediumDevice: DetailWidget(
                       selectedTool: selectedTool,
-                      imgWidth: SizeConfig.screenWidth * 0.45,
-                      textWidth: SizeConfig.screenWidth * 0.45,
+                      width: SizeConfig.screenWidth * 0.85,
+                      height: SizeConfig.screenHeight * 0.85,
                     ),
                   ),
-                )
+                ),
+                const Spacer(),
               ],
             ))),
         Consumer<HomePageViewmodel>(
@@ -69,55 +70,88 @@ class ToolDetailsView extends StatelessWidget {
 }
 
 class DetailWidget extends StatelessWidget {
-  final double imgWidth;
-  final double textWidth;
+  final double width;
+  final double height;
 
-  const DetailWidget(
-      {super.key,
-      required this.selectedTool,
-      required this.imgWidth,
-      required this.textWidth});
+  const DetailWidget({
+    super.key,
+    required this.selectedTool,
+    required this.width,
+    required this.height,
+  });
 
   final ToolsModel selectedTool;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          decoration: BoxDecoration(border: Border.all(color: kGrey)),
-          width: imgWidth,
-          height: imgWidth,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ToolDetailCarouselWidget(images: selectedTool.img!),
-          ),
-        ),
-        SizedBox(
-          width: textWidth,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    SizeConfig().init(context);
+    AppStyles styles = AppStyles();
+    return SizedBox(
+      height: height,
+      width: width,
+      //  color: kGrey,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(selectedTool.name ?? ""),
-              SizedBox(
-                child: Row(
-                  children: [
-                    Text(selectedTool.prize ?? ""),
-                    Text(selectedTool.oldPrize ?? ""),
-                  ],
+              Container(
+                constraints:
+                    BoxConstraints(maxHeight: SizeConfig.screenHeight * 0.7),
+                width: width * 0.45,
+                height: width * 0.5,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ToolDetailCarouselWidget(images: selectedTool.img!),
                 ),
-              ),
-              Text("Description"),
-              Text(
-                selectedTool.disc ?? "",
-                maxLines: null,
-                overflow: TextOverflow.visible,
-                softWrap: true,
               ),
             ],
           ),
-        )
-      ],
+          SizedBox(
+            //  color: kRed,
+            width: width * 0.45,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  selectedTool.name ?? "",
+                  style: styles.blackBold16,
+                ),
+                10.kH,
+                SizedBox(
+                  child: Row(
+                    children: [
+                      Text(
+                        "₹${selectedTool.prize ?? "00"}",
+                        style: styles.blackBold14,
+                      ),
+                      25.kW,
+                      Text(
+                        "₹${selectedTool.oldPrize ?? "00"}",
+                        style: styles.strikeText,
+                      ),
+                    ],
+                  ),
+                ),
+                10.kH,
+                Text(
+                  "Description",
+                  style: styles.blackRegular12,
+                ),
+                5.kH,
+                Text(
+                  style: styles.blackRegular11,
+                  selectedTool.disc ?? "",
+                  maxLines: null,
+                  overflow: TextOverflow.visible,
+                  softWrap: true,
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
